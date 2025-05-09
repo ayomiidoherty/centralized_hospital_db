@@ -2,11 +2,13 @@ from flask import Flask, jsonify, request
 from pymongo import MongoClient
 from bson import ObjectId
 from flask_cors import CORS
+import os 
 
 app = Flask(__name__)
 CORS(app)
 
-client = MongoClient("mongodb+srv://ayomiidoherty:G9rpgjxPiJf0XL0z@cluster0.n491gmo.mongodb.net/")
+mongo_uri = os.getenv("MONGO_URI")
+client = MongoClient(mongo_uri)
 db = client.hospital_database
 
 admin_api_key = "d9C5bK-2z6K9cA8gWq5iWdHi7Yp1PwT4u0bAoR3nPdV"
@@ -21,6 +23,9 @@ def convert_objectid(data):
     else: 
         return data 
 
+@app.route('/')
+def index():
+    return "Welcome to the Flask API!"
 
 @app.route('/medical_records', methods=['GET'])
 def get_all_records():
