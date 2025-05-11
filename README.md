@@ -32,4 +32,4 @@ The Centralized Hospital Database API is a RESTful API designed to manage patien
 
 ### 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/hospital-db-api.git
+git clone https://github.com/ayomiidoherty/hospital-db-api.git
